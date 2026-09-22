@@ -1,0 +1,19 @@
+{
+  "active": true,
+  "currentName": "Jack Murphy Stadium",
+  "id": 28,
+  "nameHistory": [
+    {
+      "name": "Jack Murphy Stadium",
+      "throughYear": 1996
+    },
+    {
+      "name": "Qualcomm Stadium",
+      "throughYear": 1979
+    },
+    {
+      "name": "San Diego Stadium",
+      "throughYear": 1980
+    }
+  ]
+}

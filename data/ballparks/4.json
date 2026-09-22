@@ -1,0 +1,23 @@
+{
+  "active": true,
+  "currentName": "Rate Field",
+  "id": 4,
+  "nameHistory": [
+    {
+      "name": "Comiskey Park",
+      "throughYear": 2002
+    },
+    {
+      "name": "Guaranteed Rate Field",
+      "throughYear": 2010
+    },
+    {
+      "name": "U.S. Cellular Field",
+      "throughYear": 2016
+    },
+    {
+      "name": "Guaranteed Rate Field",
+      "throughYear": 2024
+    }
+  ]
+}

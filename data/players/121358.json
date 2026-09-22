@@ -1,0 +1,17 @@
+{
+  "batSide": "R",
+  "birthDate": "1971-11-27",
+  "deathDate": null,
+  "debutDate": "1991-06-20",
+  "fullName": "Ivan Rodriguez",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 2017
+  },
+  "height": "5' 9\"",
+  "id": 121358,
+  "lastActiveSeason": 2011,
+  "pitchHand": "R",
+  "status": "retired",
+  "weight": 205
+}

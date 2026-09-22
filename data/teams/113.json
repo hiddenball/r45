@@ -1,0 +1,29 @@
+{
+  "active": true,
+  "currentName": "Cincinnati Reds",
+  "division": "National League Central",
+  "id": 113,
+  "league": "National League",
+  "nameHistory": [],
+  "trophies": {
+    "divisionTitles": [
+      1981,
+      1990,
+      1994,
+      1995,
+      2010,
+      2012
+    ],
+    "pennants": [
+      1990
+    ],
+    "wildCards": [
+      2013,
+      2020,
+      2025
+    ],
+    "worldSeries": [
+      1990
+    ]
+  }
+}

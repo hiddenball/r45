@@ -1,0 +1,17 @@
+{
+  "batSide": "L",
+  "birthDate": "1945-10-01",
+  "deathDate": null,
+  "debutDate": "1967-04-11",
+  "fullName": "Rod Carew",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 1991
+  },
+  "height": "6' 0\"",
+  "id": 111986,
+  "lastActiveSeason": 1985,
+  "pitchHand": "R",
+  "status": "retired",
+  "weight": 182
+}

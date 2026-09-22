@@ -1,0 +1,17 @@
+{
+  "batSide": "L",
+  "birthDate": "1946-05-18",
+  "deathDate": null,
+  "debutDate": "1967-06-09",
+  "fullName": "Reggie Jackson",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 1993
+  },
+  "height": "6' 0\"",
+  "id": 116439,
+  "lastActiveSeason": 1987,
+  "pitchHand": "L",
+  "status": "retired",
+  "weight": 200
+}

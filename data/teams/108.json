@@ -1,0 +1,42 @@
+{
+  "active": true,
+  "currentName": "Los Angeles Angels",
+  "division": "American League West",
+  "id": 108,
+  "league": "American League",
+  "nameHistory": [
+    {
+      "name": "Los Angeles Angels",
+      "throughYear": 1979
+    },
+    {
+      "name": "California Angels",
+      "throughYear": 1996
+    },
+    {
+      "name": "Anaheim Angels",
+      "throughYear": 2004
+    }
+  ],
+  "trophies": {
+    "divisionTitles": [
+      1982,
+      1986,
+      2004,
+      2005,
+      2007,
+      2008,
+      2009,
+      2014
+    ],
+    "pennants": [
+      2002
+    ],
+    "wildCards": [
+      2002
+    ],
+    "worldSeries": [
+      2002
+    ]
+  }
+}

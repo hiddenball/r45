@@ -1,0 +1,17 @@
+{
+  "batSide": "L",
+  "birthDate": "1953-05-15",
+  "deathDate": null,
+  "debutDate": "1973-08-02",
+  "fullName": "George Brett",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 1999
+  },
+  "height": "6' 0\"",
+  "id": 111437,
+  "lastActiveSeason": 1993,
+  "pitchHand": "R",
+  "status": "retired",
+  "weight": 200
+}

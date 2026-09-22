@@ -1,0 +1,17 @@
+{
+  "batSide": "R",
+  "birthDate": "1942-05-14",
+  "deathDate": null,
+  "debutDate": "1964-07-26",
+  "fullName": "Tony Perez",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 2000
+  },
+  "height": "6' 2\"",
+  "id": 120404,
+  "lastActiveSeason": 1986,
+  "pitchHand": "R",
+  "status": "retired",
+  "weight": 205
+}

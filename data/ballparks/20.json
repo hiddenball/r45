@@ -1,0 +1,23 @@
+{
+  "active": true,
+  "currentName": "Sun Life Stadium",
+  "id": 20,
+  "nameHistory": [
+    {
+      "name": "Joe Robbie Stadium",
+      "throughYear": 1996
+    },
+    {
+      "name": "Pro Player Stadium",
+      "throughYear": 2004
+    },
+    {
+      "name": "Dolphin Stadium",
+      "throughYear": 2008
+    },
+    {
+      "name": "Land Shark Stadium",
+      "throughYear": 2009
+    }
+  ]
+}

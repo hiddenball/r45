@@ -1,0 +1,43 @@
+{
+  "active": true,
+  "currentName": "Athletics",
+  "division": "American League West",
+  "id": 133,
+  "league": "American League",
+  "nameHistory": [
+    {
+      "name": "Oakland Athletics",
+      "throughYear": 2024
+    }
+  ],
+  "trophies": {
+    "divisionTitles": [
+      1981,
+      1988,
+      1989,
+      1990,
+      1992,
+      2002,
+      2003,
+      2006,
+      2012,
+      2013,
+      2020
+    ],
+    "pennants": [
+      1988,
+      1989,
+      1990
+    ],
+    "wildCards": [
+      2000,
+      2001,
+      2014,
+      2018,
+      2019
+    ],
+    "worldSeries": [
+      1989
+    ]
+  }
+}

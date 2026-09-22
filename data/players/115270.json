@@ -1,0 +1,17 @@
+{
+  "batSide": "L",
+  "birthDate": "1960-05-09",
+  "deathDate": "2014-06-16",
+  "debutDate": "1982-07-19",
+  "fullName": "Tony Gwynn",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 2007
+  },
+  "height": "5' 11\"",
+  "id": 115270,
+  "lastActiveSeason": 2001,
+  "pitchHand": "L",
+  "status": "deceased",
+  "weight": 225
+}

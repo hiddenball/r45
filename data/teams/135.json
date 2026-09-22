@@ -1,0 +1,28 @@
+{
+  "active": true,
+  "currentName": "San Diego Padres",
+  "division": "National League West",
+  "id": 135,
+  "league": "National League",
+  "nameHistory": [],
+  "trophies": {
+    "divisionTitles": [
+      1984,
+      1996,
+      1998,
+      2005,
+      2006
+    ],
+    "pennants": [
+      1984,
+      1998
+    ],
+    "wildCards": [
+      2020,
+      2022,
+      2024,
+      2025
+    ],
+    "worldSeries": []
+  }
+}

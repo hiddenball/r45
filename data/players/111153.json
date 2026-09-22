@@ -1,0 +1,17 @@
+{
+  "batSide": "L",
+  "birthDate": "1958-06-15",
+  "deathDate": null,
+  "debutDate": "1982-04-10",
+  "fullName": "Wade Boggs",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 2005
+  },
+  "height": "6' 2\"",
+  "id": 111153,
+  "lastActiveSeason": 1999,
+  "pitchHand": "R",
+  "status": "retired",
+  "weight": 197
+}

@@ -1,0 +1,8 @@
+players/: 3740 only in A, 5327 only in B, 1197 merged, 0 unreadable
+managers/: 72 only in A, 154 only in B, 38 merged, 0 unreadable
+teams/: 1 only in A, 10 only in B, 31 merged, 0 unreadable
+ballparks/: 17 only in A, 26 only in B, 33 merged, 0 unreadable
+
+TOTAL: 10646 files written to /home/saif/mlb-setup/core_merged, 1299 were merges of both datasets, 0 unreadable
+
+No unexpected field disagreements - only the documented, expected ones occurred.

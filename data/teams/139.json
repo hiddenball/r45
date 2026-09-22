@@ -1,0 +1,33 @@
+{
+  "active": true,
+  "currentName": "Tampa Bay Rays",
+  "division": "American League East",
+  "id": 139,
+  "league": "American League",
+  "nameHistory": [
+    {
+      "name": "Tampa Bay Devil Rays",
+      "throughYear": 2007
+    }
+  ],
+  "trophies": {
+    "divisionTitles": [
+      2008,
+      2010,
+      2020,
+      2021
+    ],
+    "pennants": [
+      2008,
+      2020
+    ],
+    "wildCards": [
+      2011,
+      2013,
+      2019,
+      2022,
+      2023
+    ],
+    "worldSeries": []
+  }
+}

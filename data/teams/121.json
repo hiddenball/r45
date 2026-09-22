@@ -1,0 +1,32 @@
+{
+  "active": true,
+  "currentName": "New York Mets",
+  "division": "National League East",
+  "id": 121,
+  "league": "National League",
+  "nameHistory": [],
+  "trophies": {
+    "divisionTitles": [
+      1986,
+      1988,
+      2006,
+      2015
+    ],
+    "pennants": [
+      1986,
+      2000,
+      2006,
+      2015
+    ],
+    "wildCards": [
+      1999,
+      2000,
+      2016,
+      2022,
+      2024
+    ],
+    "worldSeries": [
+      1986
+    ]
+  }
+}

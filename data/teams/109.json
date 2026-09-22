@@ -1,0 +1,28 @@
+{
+  "active": true,
+  "currentName": "Arizona Diamondbacks",
+  "division": "National League West",
+  "id": 109,
+  "league": "National League",
+  "nameHistory": [],
+  "trophies": {
+    "divisionTitles": [
+      1999,
+      2001,
+      2002,
+      2007,
+      2011
+    ],
+    "pennants": [
+      2001,
+      2023
+    ],
+    "wildCards": [
+      2017,
+      2023
+    ],
+    "worldSeries": [
+      2001
+    ]
+  }
+}

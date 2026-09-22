@@ -1,0 +1,28 @@
+{
+  "active": true,
+  "currentName": "Baltimore Orioles",
+  "division": "American League East",
+  "id": 110,
+  "league": "American League",
+  "nameHistory": [],
+  "trophies": {
+    "divisionTitles": [
+      1983,
+      1997,
+      2014,
+      2023
+    ],
+    "pennants": [
+      1983
+    ],
+    "wildCards": [
+      1996,
+      2012,
+      2016,
+      2024
+    ],
+    "worldSeries": [
+      1983
+    ]
+  }
+}

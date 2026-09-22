@@ -1,0 +1,17 @@
+{
+  "batSide": "L",
+  "birthDate": "1975-11-18",
+  "deathDate": null,
+  "debutDate": "1997-09-02",
+  "fullName": "David Ortiz",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 2022
+  },
+  "height": "6' 3\"",
+  "id": 120074,
+  "lastActiveSeason": 2016,
+  "pitchHand": "L",
+  "status": "retired",
+  "weight": 230
+}

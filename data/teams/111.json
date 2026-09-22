@@ -1,0 +1,45 @@
+{
+  "active": true,
+  "currentName": "Boston Red Sox",
+  "division": "American League East",
+  "id": 111,
+  "league": "American League",
+  "nameHistory": [],
+  "trophies": {
+    "divisionTitles": [
+      1986,
+      1988,
+      1990,
+      1995,
+      2007,
+      2013,
+      2016,
+      2017,
+      2018
+    ],
+    "pennants": [
+      1986,
+      2004,
+      2007,
+      2013,
+      2018
+    ],
+    "wildCards": [
+      1998,
+      1999,
+      2003,
+      2004,
+      2005,
+      2008,
+      2009,
+      2021,
+      2025
+    ],
+    "worldSeries": [
+      2004,
+      2007,
+      2013,
+      2018
+    ]
+  }
+}

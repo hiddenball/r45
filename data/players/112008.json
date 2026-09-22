@@ -1,0 +1,17 @@
+{
+  "batSide": "L",
+  "birthDate": "1944-12-22",
+  "deathDate": null,
+  "debutDate": "1965-04-12",
+  "fullName": "Steve Carlton",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 1994
+  },
+  "height": "6' 4\"",
+  "id": 112008,
+  "lastActiveSeason": 1988,
+  "pitchHand": "L",
+  "status": "retired",
+  "weight": 210
+}

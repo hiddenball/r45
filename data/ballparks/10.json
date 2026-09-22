@@ -1,0 +1,31 @@
+{
+  "active": true,
+  "currentName": "Oakland Coliseum",
+  "id": 10,
+  "nameHistory": [
+    {
+      "name": "Oakland Coliseum",
+      "throughYear": 1979
+    },
+    {
+      "name": "Oakland-Alameda County Coliseum",
+      "throughYear": 1997
+    },
+    {
+      "name": "Network Associates Coliseum",
+      "throughYear": 2004
+    },
+    {
+      "name": "McAfee Coliseum",
+      "throughYear": 2008
+    },
+    {
+      "name": "Oakland Coliseum",
+      "throughYear": 2012
+    },
+    {
+      "name": "O.co Coliseum",
+      "throughYear": 2015
+    }
+  ]
+}

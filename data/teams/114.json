@@ -1,0 +1,44 @@
+{
+  "active": true,
+  "currentName": "Cleveland Guardians",
+  "division": "American League Central",
+  "id": 114,
+  "league": "American League",
+  "nameHistory": [
+    {
+      "name": "Cleveland Guardians",
+      "throughYear": 2010
+    },
+    {
+      "name": "Cleveland Indians",
+      "throughYear": 2021
+    }
+  ],
+  "trophies": {
+    "divisionTitles": [
+      1995,
+      1996,
+      1997,
+      1998,
+      1999,
+      2001,
+      2007,
+      2016,
+      2017,
+      2018,
+      2022,
+      2024,
+      2025
+    ],
+    "pennants": [
+      1995,
+      1997,
+      2016
+    ],
+    "wildCards": [
+      2013,
+      2020
+    ],
+    "worldSeries": []
+  }
+}

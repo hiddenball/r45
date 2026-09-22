@@ -1,0 +1,22 @@
+{
+  "active": true,
+  "currentName": "Seattle Mariners",
+  "division": "American League West",
+  "id": 136,
+  "league": "American League",
+  "nameHistory": [],
+  "trophies": {
+    "divisionTitles": [
+      1995,
+      1997,
+      2001,
+      2025
+    ],
+    "pennants": [],
+    "wildCards": [
+      2000,
+      2022
+    ],
+    "worldSeries": []
+  }
+}

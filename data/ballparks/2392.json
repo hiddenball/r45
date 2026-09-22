@@ -1,0 +1,19 @@
+{
+  "active": true,
+  "currentName": "Daikin Park",
+  "id": 2392,
+  "nameHistory": [
+    {
+      "name": "Enron Field",
+      "throughYear": 2001
+    },
+    {
+      "name": "Astros Field",
+      "throughYear": 2002
+    },
+    {
+      "name": "Minute Maid Park",
+      "throughYear": 2024
+    }
+  ]
+}

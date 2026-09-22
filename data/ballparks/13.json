@@ -1,0 +1,19 @@
+{
+  "active": true,
+  "currentName": "Globe Life Park in Arlington",
+  "id": 13,
+  "nameHistory": [
+    {
+      "name": "The Ballpark at Arlington",
+      "throughYear": 2004
+    },
+    {
+      "name": "Ameriquest Field",
+      "throughYear": 2006
+    },
+    {
+      "name": "Rangers Ballpark in Arlington",
+      "throughYear": 2013
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "active": true,
+  "currentName": "Oracle Park",
+  "id": 2395,
+  "nameHistory": [
+    {
+      "name": "PacBell Park",
+      "throughYear": 2003
+    },
+    {
+      "name": "SBC Park",
+      "throughYear": 2005
+    },
+    {
+      "name": "Oracle Park",
+      "throughYear": 2010
+    },
+    {
+      "name": "AT&T Park",
+      "throughYear": 2018
+    }
+  ]
+}

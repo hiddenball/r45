@@ -1,0 +1,17 @@
+{
+  "batSide": "L",
+  "birthDate": "1970-08-27",
+  "deathDate": null,
+  "debutDate": "1991-09-04",
+  "fullName": "Jim Thome",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 2018
+  },
+  "height": "6' 4\"",
+  "id": 123272,
+  "lastActiveSeason": 2012,
+  "pitchHand": "R",
+  "status": "retired",
+  "weight": 250
+}

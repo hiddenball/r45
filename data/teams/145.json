@@ -1,0 +1,28 @@
+{
+  "active": true,
+  "currentName": "Chicago White Sox",
+  "division": "American League Central",
+  "id": 145,
+  "league": "American League",
+  "nameHistory": [],
+  "trophies": {
+    "divisionTitles": [
+      1983,
+      1993,
+      1994,
+      2005,
+      2008,
+      2021
+    ],
+    "pennants": [
+      2005
+    ],
+    "wildCards": [
+      2000,
+      2020
+    ],
+    "worldSeries": [
+      2005
+    ]
+  }
+}

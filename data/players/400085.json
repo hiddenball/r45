@@ -1,0 +1,17 @@
+{
+  "batSide": "L",
+  "birthDate": "1973-10-22",
+  "deathDate": null,
+  "debutDate": "2001-04-02",
+  "fullName": "Ichiro Suzuki",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 2025
+  },
+  "height": "5' 11\"",
+  "id": 400085,
+  "lastActiveSeason": 2019,
+  "pitchHand": "R",
+  "status": "retired",
+  "weight": 175
+}

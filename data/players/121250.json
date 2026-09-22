@@ -1,0 +1,17 @@
+{
+  "batSide": "R",
+  "birthDate": "1969-11-29",
+  "deathDate": null,
+  "debutDate": "1995-05-23",
+  "fullName": "Mariano Rivera",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 2019
+  },
+  "height": "6' 2\"",
+  "id": 121250,
+  "lastActiveSeason": 2013,
+  "pitchHand": "R",
+  "status": "retired",
+  "weight": 195
+}

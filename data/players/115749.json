@@ -1,0 +1,17 @@
+{
+  "batSide": "R",
+  "birthDate": "1958-12-25",
+  "deathDate": "2024-12-20",
+  "debutDate": "1979-06-24",
+  "fullName": "Rickey Henderson",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 2009
+  },
+  "height": "5' 10\"",
+  "id": 115749,
+  "lastActiveSeason": 2003,
+  "pitchHand": "L",
+  "status": "deceased",
+  "weight": 190
+}

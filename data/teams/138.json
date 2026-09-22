@@ -1,0 +1,49 @@
+{
+  "active": true,
+  "currentName": "St. Louis Cardinals",
+  "division": "National League Central",
+  "id": 138,
+  "league": "National League",
+  "nameHistory": [],
+  "trophies": {
+    "divisionTitles": [
+      1981,
+      1982,
+      1985,
+      1987,
+      1996,
+      2002,
+      2004,
+      2005,
+      2006,
+      2009,
+      2013,
+      2014,
+      2015,
+      2019,
+      2022
+    ],
+    "pennants": [
+      1982,
+      1985,
+      1987,
+      2004,
+      2006,
+      2011,
+      2013
+    ],
+    "wildCards": [
+      2000,
+      2001,
+      2011,
+      2012,
+      2020,
+      2021
+    ],
+    "worldSeries": [
+      1982,
+      2006,
+      2011
+    ]
+  }
+}

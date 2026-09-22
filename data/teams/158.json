@@ -1,0 +1,29 @@
+{
+  "active": true,
+  "currentName": "Milwaukee Brewers",
+  "division": "National League Central",
+  "id": 158,
+  "league": "National League",
+  "nameHistory": [],
+  "trophies": {
+    "divisionTitles": [
+      1981,
+      1982,
+      2011,
+      2018,
+      2021,
+      2023,
+      2024,
+      2025
+    ],
+    "pennants": [
+      1982
+    ],
+    "wildCards": [
+      2008,
+      2019,
+      2020
+    ],
+    "worldSeries": []
+  }
+}

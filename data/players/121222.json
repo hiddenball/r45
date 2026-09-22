@@ -1,0 +1,17 @@
+{
+  "batSide": "R",
+  "birthDate": "1960-08-24",
+  "deathDate": null,
+  "debutDate": "1981-08-10",
+  "fullName": "Cal Ripken Jr.",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 2007
+  },
+  "height": "6' 4\"",
+  "id": 121222,
+  "lastActiveSeason": 2001,
+  "pitchHand": "R",
+  "status": "retired",
+  "weight": 220
+}

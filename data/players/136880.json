@@ -1,0 +1,17 @@
+{
+  "batSide": "R",
+  "birthDate": "1977-05-14",
+  "deathDate": "2017-11-07",
+  "debutDate": "1998-09-20",
+  "fullName": "Roy Halladay",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 2019
+  },
+  "height": "6' 6\"",
+  "id": 136880,
+  "lastActiveSeason": 2013,
+  "pitchHand": "R",
+  "status": "deceased",
+  "weight": 225
+}

@@ -1,0 +1,17 @@
+{
+  "batSide": "S",
+  "birthDate": "1972-04-24",
+  "deathDate": null,
+  "debutDate": "1993-09-11",
+  "fullName": "Chipper Jones",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 2018
+  },
+  "height": "6' 4\"",
+  "id": 116706,
+  "lastActiveSeason": 2012,
+  "pitchHand": "R",
+  "status": "retired",
+  "weight": 210
+}

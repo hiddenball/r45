@@ -1,0 +1,17 @@
+{
+  "batSide": "L",
+  "birthDate": "1980-07-21",
+  "deathDate": null,
+  "debutDate": "2001-04-08",
+  "fullName": "CC Sabathia",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 2025
+  },
+  "height": "6' 6\"",
+  "id": 282332,
+  "lastActiveSeason": 2019,
+  "pitchHand": "L",
+  "status": "retired",
+  "weight": 300
+}

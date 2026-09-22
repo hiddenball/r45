@@ -1,0 +1,32 @@
+{
+  "active": true,
+  "currentName": "Chicago Cubs",
+  "division": "National League Central",
+  "id": 112,
+  "league": "National League",
+  "nameHistory": [],
+  "trophies": {
+    "divisionTitles": [
+      1984,
+      1989,
+      2003,
+      2007,
+      2008,
+      2016,
+      2017,
+      2020
+    ],
+    "pennants": [
+      2016
+    ],
+    "wildCards": [
+      1998,
+      2015,
+      2018,
+      2025
+    ],
+    "worldSeries": [
+      2016
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "active": true,
+  "currentName": "Angel Stadium",
+  "id": 1,
+  "nameHistory": [
+    {
+      "name": "Angel Stadium of Anaheim",
+      "throughYear": 1979
+    },
+    {
+      "name": "Anaheim Stadium",
+      "throughYear": 1997
+    },
+    {
+      "name": "Edison International Field",
+      "throughYear": 2003
+    },
+    {
+      "name": "Angel Stadium",
+      "throughYear": 2010
+    },
+    {
+      "name": "Angel Stadium of Anaheim",
+      "throughYear": 2017
+    }
+  ]
+}

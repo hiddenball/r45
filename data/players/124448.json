@@ -1,0 +1,17 @@
+{
+  "batSide": "R",
+  "birthDate": "1951-10-03",
+  "deathDate": null,
+  "debutDate": "1973-06-19",
+  "fullName": "Dave Winfield",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 2001
+  },
+  "height": "6' 6\"",
+  "id": 124448,
+  "lastActiveSeason": 1995,
+  "pitchHand": "R",
+  "status": "retired",
+  "weight": 220
+}

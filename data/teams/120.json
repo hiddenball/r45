@@ -1,0 +1,35 @@
+{
+  "active": true,
+  "currentName": "Washington Nationals",
+  "division": "National League East",
+  "id": 120,
+  "league": "National League",
+  "nameHistory": [
+    {
+      "name": "Washington Nationals",
+      "throughYear": 1979
+    },
+    {
+      "name": "Montreal Expos",
+      "throughYear": 2004
+    }
+  ],
+  "trophies": {
+    "divisionTitles": [
+      1994,
+      2012,
+      2014,
+      2016,
+      2017
+    ],
+    "pennants": [
+      2019
+    ],
+    "wildCards": [
+      2019
+    ],
+    "worldSeries": [
+      2019
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "active": true,
+  "currentName": "American Family Field",
+  "id": 32,
+  "nameHistory": [
+    {
+      "name": "American Family Field",
+      "throughYear": 2010
+    },
+    {
+      "name": "Miller Park",
+      "throughYear": 2020
+    }
+  ]
+}

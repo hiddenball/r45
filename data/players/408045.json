@@ -1,0 +1,17 @@
+{
+  "batSide": "L",
+  "birthDate": "1983-04-19",
+  "deathDate": null,
+  "debutDate": "2004-04-05",
+  "fullName": "Joe Mauer",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 2024
+  },
+  "height": "6' 5\"",
+  "id": 408045,
+  "lastActiveSeason": 2018,
+  "pitchHand": "R",
+  "status": "retired",
+  "weight": 225
+}

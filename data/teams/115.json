@@ -1,0 +1,22 @@
+{
+  "active": true,
+  "currentName": "Colorado Rockies",
+  "division": "National League West",
+  "id": 115,
+  "league": "National League",
+  "nameHistory": [],
+  "trophies": {
+    "divisionTitles": [],
+    "pennants": [
+      2007
+    ],
+    "wildCards": [
+      1995,
+      2007,
+      2009,
+      2017,
+      2018
+    ],
+    "worldSeries": []
+  }
+}

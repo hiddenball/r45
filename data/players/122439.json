@@ -1,0 +1,17 @@
+{
+  "batSide": "S",
+  "birthDate": "1954-12-26",
+  "deathDate": null,
+  "debutDate": "1978-04-07",
+  "fullName": "Ozzie Smith",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 2002
+  },
+  "height": "5' 11\"",
+  "id": 122439,
+  "lastActiveSeason": 1996,
+  "pitchHand": "R",
+  "status": "retired",
+  "weight": 150
+}

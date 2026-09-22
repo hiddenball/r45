@@ -1,0 +1,17 @@
+{
+  "batSide": "R",
+  "birthDate": "1945-10-15",
+  "deathDate": null,
+  "debutDate": "1965-04-17",
+  "fullName": "Jim Palmer",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 1990
+  },
+  "height": "6' 3\"",
+  "id": 120196,
+  "lastActiveSeason": 1984,
+  "pitchHand": "R",
+  "status": "retired",
+  "weight": 195
+}

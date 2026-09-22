@@ -1,0 +1,34 @@
+{
+  "active": true,
+  "currentName": "Minnesota Twins",
+  "division": "American League Central",
+  "id": 142,
+  "league": "American League",
+  "nameHistory": [],
+  "trophies": {
+    "divisionTitles": [
+      1987,
+      1991,
+      2002,
+      2003,
+      2004,
+      2006,
+      2009,
+      2010,
+      2019,
+      2020,
+      2023
+    ],
+    "pennants": [
+      1987,
+      1991
+    ],
+    "wildCards": [
+      2017
+    ],
+    "worldSeries": [
+      1987,
+      1991
+    ]
+  }
+}

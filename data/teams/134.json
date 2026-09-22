@@ -1,0 +1,22 @@
+{
+  "active": true,
+  "currentName": "Pittsburgh Pirates",
+  "division": "National League Central",
+  "id": 134,
+  "league": "National League",
+  "nameHistory": [],
+  "trophies": {
+    "divisionTitles": [
+      1990,
+      1991,
+      1992
+    ],
+    "pennants": [],
+    "wildCards": [
+      2013,
+      2014,
+      2015
+    ],
+    "worldSeries": []
+  }
+}

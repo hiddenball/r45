@@ -1,0 +1,17 @@
+{
+  "batSide": "L",
+  "birthDate": "1943-09-19",
+  "deathDate": "2020-10-11",
+  "debutDate": "1963-09-21",
+  "fullName": "Joe Morgan",
+  "hallOfFame": {
+    "inducted": true,
+    "year": 1990
+  },
+  "height": "5' 7\"",
+  "id": 119371,
+  "lastActiveSeason": 1984,
+  "pitchHand": "R",
+  "status": "deceased",
+  "weight": 160
+}
