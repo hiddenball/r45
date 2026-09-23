@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Player — MLB Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css" />
+<style>
+  .hero { display: flex; align-items: baseline; flex-wrap: wrap; gap: 14px; margin-bottom: 10px; }
+  .hero h1 { font-size: clamp(32px, 5vw, 48px); }
+  .hof {
+    font-family: var(--display); font-size: 12px; letter-spacing: 0.03em;
+    color: var(--bg); background: var(--warning);
+    padding: 4px 10px; border-radius: 3px; align-self: center;
+  }
+  .bio-line { color: var(--text-muted); font-size: 15px; margin-bottom: 4px; }
+  .bio-line .sep { color: var(--text-faint); margin: 0 8px; }
+  .lede { color: var(--text-faint); font-size: 14px; margin-bottom: 32px; }
+
+  .tabs { display: flex; border-bottom: 1px solid var(--border); margin-bottom: 18px; }
+  .career-note { font-size: 13px; color: var(--text-faint); margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="wordmark" href="index.html">Diamond<span>Archive</span></a>
+    <nav>
+      <a href="scores.html">Scores</a>
+      <a href="standings.html">Standings</a>
+      <a href="teams.html">Teams</a>
+      <a href="players.html">Players</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="crumbs"><a class="link" href="players.html">Players</a> / <span id="crumb-name">…</span></div>
+  <div id="content">
+    <div class="state-msg">Loading player…</div>
+  </div>
+</main>
+
+<script src="assets/data.js"></script>
+<script>
+  const { fetchCoreFile, fetchYearRange, qs, el, fmtAvg, fmtERA } = window.MLB;
+  const playerId = qs("id");
+  const content = document.getElementById("content");
+  let teamNameCache = {};
+
+  function fail(msg) {
+    content.innerHTML = "";
+    content.appendChild(el("div", { class: "state-msg error" }, [
+      el("div", { text: msg }),
+      el("button", { class: "retry", text: "Try again", onclick: "location.reload()" }),
+    ]));
+  }
+
+  if (!playerId) {
+    fail("No player specified. Open this page as player.html?id=<playerId>.");
+  } else {
+    fetchCoreFile(`players/${playerId}.json`)
+      .then(renderPlayer)
+      .catch((e) => fail(`Couldn't load this player (${e.message}).`));
+  }
+
+  function fmtHeight(h) { return h || "—"; }
+
+  function renderPlayer(p) {
+    document.getElementById("crumb-name").textContent = p.fullName;
+    document.title = `${p.fullName} — MLB Archive`;
+    content.innerHTML = "";
+
+    const heroChildren = [ el("h1", { text: p.fullName }) ];
+    if (p.hallOfFame && p.hallOfFame.inducted) {
+      heroChildren.push(el("span", { class: "hof", text: `Hall of Fame · ${p.hallOfFame.year}` }));
+    }
+    content.appendChild(el("div", { class: "hero" }, heroChildren));
+
+    const bioBits = [
+      p.batSide ? `Bats ${p.batSide}` : null,
+      p.pitchHand ? `Throws ${p.pitchHand}` : null,
+      fmtHeight(p.height),
+      p.weight ? `${p.weight} lb` : null,
+      p.status ? p.status[0].toUpperCase() + p.status.slice(1) : null,
+    ].filter(Boolean);
+    content.appendChild(el("div", { class: "bio-line", html: bioBits.join('<span class="sep">·</span>') }));
+
+    const dates = [
+      p.birthDate ? `Born ${p.birthDate}` : null,
+      p.deathDate ? `Died ${p.deathDate}` : null,
+      p.debutDate ? `Debut ${p.debutDate}` : null,
+    ].filter(Boolean);
+    content.appendChild(el("div", { class: "lede", text: dates.join("  ·  ") }));
+
+    const debutYear = p.debutDate ? Number(String(p.debutDate).slice(0, 4)) : 1980;
+    const endYear = p.lastActiveSeason || new Date().getUTCFullYear();
+
+    content.appendChild(el("div", { class: "state-msg", id: "stats-status", text: `Loading stat lines, ${debutYear}–${endYear}…` }));
+
+    fetchYearRange(debutYear, endYear, "player-stats.json").then((rows) => {
+      const own = [];
+      rows.forEach(({ year, data }) => {
+        (data || []).forEach((r) => {
+          if (String(r.playerId) === String(playerId)) own.push({ year, row: r });
+        });
+      });
+      document.getElementById("stats-status").remove();
+      if (!own.length) {
+        content.appendChild(el("div", { class: "state-msg", text: "No stat lines on file for this player." }));
+        return;
+      }
+      renderStatSection(own);
+    }).catch((e) => {
+      const s = document.getElementById("stats-status");
+      if (s) s.textContent = `Couldn't load stat lines (${e.message}).`;
+    });
+  }
+
+  function renderStatSection(rows) {
+    const groups = { hitting: [], pitching: [], fielding: [] };
+    rows.forEach(({ year, row }) => {
+      if (groups[row.statGroup]) groups[row.statGroup].push({ year, row });
+    });
+
+    const teamIds = new Set();
+    rows.forEach(({ row }) => { if (row.teamId != null) teamIds.add(row.teamId); });
+
+    const tabsAvailable = Object.keys(groups).filter((g) => groups[g].length);
+    const tabsBar = el("div", { class: "tabs" });
+    const panelWrap = el("div", { class: "table-wrap panel" });
+    content.appendChild(tabsBar);
+    content.appendChild(panelWrap);
+
+    loadTeamNames(teamIds).then(() => {
+      tabsAvailable.forEach((g, i) => {
+        const btn = el("button", { class: "tab" + (i === 0 ? " active" : ""), text: g[0].toUpperCase() + g.slice(1) });
+        btn.addEventListener("click", () => {
+          tabsBar.querySelectorAll(".tab").forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          renderTable(g, groups[g], panelWrap);
+        });
+        tabsBar.appendChild(btn);
+      });
+      if (tabsAvailable.length) renderTable(tabsAvailable[0], groups[tabsAvailable[0]], panelWrap);
+    });
+  }
+
+  function loadTeamNames(teamIds) {
+    return Promise.all(
+      Array.from(teamIds).map((id) =>
+        fetchCoreFile(`teams/${id}.json`).then((t) => { teamNameCache[id] = t.currentName; }).catch(() => {})
+      )
+    );
+  }
+
+  function teamLabel(id) {
+    if (id == null) return "Total";
+    return teamNameCache[id] || `Team ${id}`;
+  }
+
+  function renderTable(group, entries, wrap) {
+    entries = entries.slice().sort((a, b) => a.year - b.year);
+    wrap.innerHTML = "";
+    const table = el("table", { class: "stat-table" });
+    const cols = group === "hitting"
+      ? ["Year", "Team", "AVG", "AB", "R", "H", "2B", "3B", "HR", "RBI", "BB", "K", "SB"]
+      : group === "pitching"
+      ? ["Year", "Team", "W", "L", "ERA", "IP", "SO", "SV", "BB", "H", "ER"]
+      : ["Year", "Team", "POS", "G", "INN"];
+    table.appendChild(el("thead", {}, [ el("tr", {}, cols.map((h) => el("th", { text: h }))) ]));
+    const tbody = el("tbody");
+
+    entries.forEach(({ year, row }) => {
+      const s = row.stat || {};
+      let cells;
+      if (group === "hitting") {
+        cells = [
+          year, teamLabel(row.teamId), fmtAvg(s.hits, s.atBats), s.atBats, s.runs, s.hits,
+          s.doubles, s.triples, s.homeRuns, s.rbi, s.baseOnBalls, s.strikeOuts, s.stolenBases,
+        ];
+      } else if (group === "pitching") {
+        cells = [
+          year, teamLabel(row.teamId), s.wins, s.losses,
+          s.era != null ? s.era : fmtERA(s.earnedRuns, s.inningsPitched),
+          s.inningsPitched, s.strikeOuts, s.saves, s.baseOnBalls, s.hits, s.earnedRuns,
+        ];
+      } else {
+        cells = [ year, teamLabel(row.teamId), (s.position && s.position.abbreviation) || "—", s.games, s.innings ];
+      }
+      tbody.appendChild(el("tr", {}, cells.map((v) => el("td", { text: v != null ? String(v) : "—" }))));
+    });
+    table.appendChild(tbody);
+    wrap.appendChild(table);
+  }
+</script>
+</body>
+</html>
