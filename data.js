@@ -74,6 +74,29 @@
     return new URLSearchParams(window.location.search).get(name);
   }
 
+  // Team names aren't bundled in bulk anywhere (core repo has one file per
+  // team, no listing), so every page that needs a name for a teamId should
+  // go through this cache rather than re-fetching the same team file.
+  const teamNameCache = new Map();
+  function fetchTeamName(id) {
+    if (id == null) return Promise.resolve(null);
+    if (teamNameCache.has(id)) return Promise.resolve(teamNameCache.get(id));
+    return fetchCoreFile(`teams/${id}.json`)
+      .then((t) => {
+        teamNameCache.set(id, t.currentName);
+        return t.currentName;
+      })
+      .catch(() => `Team ${id}`);
+  }
+
+  // A handful of fields (wins/losses/pct on standings.json and
+  // team-stats.json) aren't confirmed by name in BUILD_GUIDE.md, so read
+  // them defensively by trying a few likely keys in order.
+  function pick(obj, keys, fallback) {
+    for (const k of keys) if (obj && obj[k] != null) return obj[k];
+    return fallback === undefined ? null : fallback;
+  }
+
   // Small render helpers shared across pages.
   function el(tag, attrs, children) {
     const node = document.createElement(tag);
@@ -120,5 +143,7 @@
     fmtAvg,
     fmtERA,
     ipToOuts,
+    fetchTeamName,
+    pick,
   };
 })();
