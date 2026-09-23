@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DiamondArchive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css" />
+<style>
+  .hero { padding: 12px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+  .hero h1 { font-size: clamp(38px, 6vw, 60px); line-height: 1.05; max-width: 14ch; }
+  .hero p { color: var(--text-faint); font-size: 16px; max-width: 46ch; margin-top: 14px; }
+
+  .sections { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 820px) { .sections { grid-template-columns: 1fr; } }
+  .sections > .full { grid-column: 1 / -1; }
+
+  .section-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px; }
+  .section-head h2 { font-size: 18px; }
+  .section-head a { font-size: 13px; color: var(--text-faint); font-family: var(--display); }
+  .section-head a:hover { color: var(--accent-hover); }
+
+  .game-row, .tx-row {
+    display: flex; justify-content: space-between; gap: 10px;
+    padding: 11px 0; border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .game-row:last-child, .tx-row:last-child { border-bottom: none; }
+  .game-row .date, .tx-row .date { color: var(--text-faint); font-family: var(--mono); font-size: 12px; white-space: nowrap; padding-top: 2px; }
+  .game-row .matchup { flex: 1; }
+  .game-row .score { font-family: var(--mono); color: var(--text-muted); }
+  .team-line { display: flex; justify-content: space-between; }
+  .team-line + .team-line { margin-top: 2px; }
+  .team-line .winner { color: var(--text); }
+  .team-line .loser { color: var(--text-faint); }
+
+  .division-block { margin-bottom: 22px; }
+  .division-block:last-child { margin-bottom: 0; }
+  .division-block h3 { font-size: 13px; color: var(--text-faint); font-weight: 400; margin-bottom: 8px; letter-spacing: 0.01em; }
+  .standing-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 14px; border-bottom: 1px solid var(--border); }
+  .standing-row:last-child { border-bottom: none; }
+  .standing-row .rec { font-family: var(--mono); color: var(--text-muted); font-size: 13px; }
+
+  .tx-desc { color: var(--text-muted); }
+  .tx-type { color: var(--text-faint); font-family: var(--display); font-size: 11px; margin-right: 6px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="wordmark" href="index.html">Diamond<span>Archive</span></a>
+    <nav>
+      <a href="scores.html">Scores</a>
+      <a href="standings.html">Standings</a>
+      <a href="teams.html">Teams</a>
+      <a href="players.html">Players</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <h1>Every box score since 1980.</h1>
+    <p>Standings, stat lines, and rosters going back to 1980, pulled straight
+      from the season archive — no login, no paywall.</p>
+  </div>
+
+  <div class="sections">
+    <div class="full">
+      <div class="section-head"><h2>Latest games</h2><a href="scores.html">All scores →</a></div>
+      <div class="panel" id="games-panel"><div class="state-msg">Loading recent games…</div></div>
+    </div>
+
+    <div>
+      <div class="section-head"><h2>Standings glance</h2><a href="standings.html">Full standings →</a></div>
+      <div class="panel" id="standings-panel"><div class="state-msg">Loading standings…</div></div>
+    </div>
+
+    <div>
+      <div class="section-head"><h2>Recent transactions</h2><a href="transactions.html">All transactions →</a></div>
+      <div class="panel" id="tx-panel"><div class="state-msg">Loading transactions…</div></div>
+    </div>
+  </div>
+</main>
+
+<script src="assets/data.js"></script>
+<script>
+  const { fetchSeasonFile, fetchTeamName, pick, el } = window.MLB;
+  const now = new Date();
+  const YEAR = now.getUTCFullYear();
+  const DONE_STATUSES = new Set(["Final", "Completed Early", "Game Over"]);
+
+  loadGames();
+  loadStandings();
+  loadTransactions();
+
+  function panelError(id, msg) {
+    const p = document.getElementById(id);
+    p.innerHTML = "";
+    p.appendChild(el("div", { class: "state-msg error", text: msg }));
+  }
+
+  function loadGames() {
+    fetchSeasonFile(YEAR, "schedule.json").then((games) => {
+      const finished = games
+        .filter((g) => DONE_STATUSES.has(g.status))
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .filter((g, i, arr) => arr.findIndex((x) => x.gamePk === g.gamePk) === i) // de-dupe replays
+        .slice(0, 8);
+
+      if (!finished.length) {
+        panelError("games-panel", "No completed games on file yet for this season.");
+        return;
+      }
+
+      Promise.all(
+        finished.map((g) =>
+          Promise.all([fetchTeamName(g.awayTeamId), fetchTeamName(g.homeTeamId)]).then(
+            ([away, home]) => ({ g, away, home })
+          )
+        )
+      ).then((rows) => {
+        const panel = document.getElementById("games-panel");
+        panel.innerHTML = "";
+        rows.forEach(({ g, away, home }) => {
+          const awayWin = g.awayScore > g.homeScore;
+          panel.appendChild(
+            el("div", { class: "game-row" }, [
+              el("div", { class: "date", text: new Date(g.date).toLocaleDateString(undefined, { month: "short", day: "numeric" }) }),
+              el("div", { class: "matchup" }, [
+                el("div", { class: "team-line" }, [
+                  el("span", { class: awayWin ? "winner" : "loser", text: away }),
+                  el("span", { class: "score", text: String(g.awayScore) }),
+                ]),
+                el("div", { class: "team-line" }, [
+                  el("span", { class: awayWin ? "loser" : "winner", text: home }),
+                  el("span", { class: "score", text: String(g.homeScore) }),
+                ]),
+              ]),
+            ])
+          );
+        });
+      });
+    }).catch((e) => panelError("games-panel", `Couldn't load games (${e.message}).`));
+  }
+
+  function loadStandings() {
+    Promise.all([
+      fetchSeasonFile(YEAR, "standings.json"),
+      fetchSeasonFile(YEAR, "team-stats.json"),
+    ]).then(([standings, teamStats]) => {
+      const divisionById = new Map();
+      teamStats.forEach((t) => divisionById.set(t.teamId, pick(t, ["divisionAtTheTime"])));
+
+      const byDivision = new Map();
+      standings.forEach((row) => {
+        const div = divisionById.get(row.teamId) || "Other";
+        if (!byDivision.has(div)) byDivision.set(div, []);
+        byDivision.get(div).push(row);
+      });
+
+      if (!byDivision.size) {
+        panelError("standings-panel", "No standings on file yet for this season.");
+        return;
+      }
+
+      const divisions = Array.from(byDivision.keys()).sort();
+      Promise.all(
+        divisions.map((div) =>
+          Promise.all(
+            byDivision.get(div)
+              .sort((a, b) => (pick(a, ["divisionRank"], 99) - pick(b, ["divisionRank"], 99)))
+              .slice(0, 5)
+              .map((row) =>
+                fetchTeamName(row.teamId).then((name) => ({ row, name }))
+              )
+          ).then((teamRows) => ({ div, teamRows }))
+        )
+      ).then((blocks) => {
+        const panel = document.getElementById("standings-panel");
+        panel.innerHTML = "";
+        blocks.forEach(({ div, teamRows }) => {
+          const block = el("div", { class: "division-block" }, [
+            el("h3", { text: div }),
+          ]);
+          teamRows.forEach(({ row, name }) => {
+            const w = pick(row, ["wins", "w"]);
+            const l = pick(row, ["losses", "l"]);
+            const rec = w != null && l != null ? `${w}-${l}` : "—";
+            block.appendChild(
+              el("div", { class: "standing-row" }, [
+                el("span", { text: name }),
+                el("span", { class: "rec", text: rec }),
+              ])
+            );
+          });
+          panel.appendChild(block);
+        });
+      });
+    }).catch((e) => panelError("standings-panel", `Couldn't load standings (${e.message}).`));
+  }
+
+  function loadTransactions() {
+    tryMonth(now.getUTCMonth() + 1);
+
+    function tryMonth(month, triesLeft) {
+      triesLeft = triesLeft == null ? 3 : triesLeft;
+      const mm = String(month).padStart(2, "0");
+      fetchSeasonFile(YEAR, `transactions/${mm}.json`)
+        .then((data) => {
+          const tx = (data.tx || []).slice().sort((a, b) => new Date(b[0]) - new Date(a[0])).slice(0, 6);
+          if (!tx.length && triesLeft > 0 && month > 1) {
+            tryMonth(month - 1, triesLeft - 1);
+            return;
+          }
+          renderTx(data.types || {}, tx);
+        })
+        .catch(() => {
+          if (triesLeft > 0 && month > 1) tryMonth(month - 1, triesLeft - 1);
+          else panelError("tx-panel", "No recent transactions on file.");
+        });
+    }
+
+    function renderTx(types, tx) {
+      const panel = document.getElementById("tx-panel");
+      panel.innerHTML = "";
+      if (!tx.length) {
+        panelError("tx-panel", "No recent transactions on file.");
+        return;
+      }
+      tx.forEach(([date, typeCode, playerId, playerName, fromTeamId, toTeamId, description]) => {
+        panel.appendChild(
+          el("div", { class: "tx-row" }, [
+            el("div", { class: "date", text: new Date(date).toLocaleDateString(undefined, { month: "short", day: "numeric" }) }),
+            el("div", { class: "tx-desc" }, [
+              el("span", { class: "tx-type", text: (types[typeCode] || typeCode).toUpperCase() }),
+              el("span", { text: description || playerName }),
+            ]),
+          ])
+        );
+      });
+    }
+  }
+</script>
+</body>
+</html>
