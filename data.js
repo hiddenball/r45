@@ -1,5 +1,4 @@
 (function () {
-  
   const MANIFEST_URL =
     "https://cdn.jsdelivr.net/gh/hiddenball/mlb-data-core@main/manifest.json";
   let manifestPromise = null;
