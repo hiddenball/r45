@@ -7,8 +7,8 @@
   },
   "current": {
     "from_year": 2026,
-    "repo": "mlb-data-current",
-    "url": "https://cdn.jsdelivr.net/gh/hiddenball/mlb-data-current@main"
+    "repo": "w23",
+    "url": "https://cdn.jsdelivr.net/gh/hiddenball/w23@main"
   },
   "github_user": "hiddenball",
   "season_repos": {
